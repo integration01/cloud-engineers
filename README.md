@@ -4,6 +4,10 @@ This repo contains mostly documentation and examples for using the `orasenatdplt
 ## Shared OCI Vault
 All engineers can and should use the `SHARED_ASH_VAULT` within the `clopud-engineering-vault` compartment.  This prevents everyone from needing to maintain their own vault.  All services requiring vault access should be enabled and working with keys from the vault.
 
+### Examples (Needed for SQL Worksheet and DB Management)
+![Vault Sys](images/Vault-Database-SysPassword.png)
+![DBM Vault](images/Vault-Database-DbsnmpPassword.png)
+
 ### Master Encryption Keys
 It is recommended to create a MEK with your initials at the front, ie `AG-MEK`, so it is easy to find when creating secrets.  
 ### Secrets
@@ -14,10 +18,12 @@ Remember to select the `cloud-engineering-vault` compartment from any screen ask
 ## Shared ExaCS
 All engineers can create an ExaCS Database in /ExaCS in one of the VM Clusters.  You can use SQL Worksheet to connect to your database directly from the browser (see below). In order to connect to this database from your own VCN, you need to do some pre-requisite work with your VCN and the Dynamic Routing Gateway that is attached to the ExaCS VCN.  More details below.
 
+### Example
 ![ExaCS](images/ExaCS-Created.png)
 ### Autonomous Recovery
 Databases within ExaCS are enabled for use within ASR.  This can be enabled when the database is created or after the fact.  Once enabled, check both the Protected Databases screen and the Backups screen for your DB to ensure you are getting valid backups.
 
+### ASR Example
 ![ASR Success](images/ASR-Successful.png)
 ![ASR Protected DB](images/ASR-Protected-DB.png)
 ### SQL Worksheet / DB Tools
@@ -27,7 +33,7 @@ The tenancy now allows for the use of SQL Worksheet.  You can create a connectio
    a) The wallet screen is optional
 4) Enter SQL Worksheet and ensure your connection is selected
 
-![Vault Sys](images/Vault-Database-SysPassword.png)
+### SQL Worksheet Example
 ![SQLW Conn](images/SQLWorksheet-Connection1.png)
 ![SQLW Conn](images/SQLWorksheet-Connection2.png)
 ![SQLW Conn](images/SQLWorksheet-Enabled.png)
@@ -49,9 +55,11 @@ GRANT EXECUTE ON DBMS_WORKLOAD_REPOSITORY to DBSNMP;
 4) Choose the private endpoint called `ExaCS_PE` within the ExaCs compartment
 5) Choose Full or Basic
 
-![DBM Vault](images/Vault-Database-DbsnmpPassword.png)
+### Database Management Example
 ![DBM Enable](images/DBM-Enable1.png)
 ![DBM Enable](images/DBM-Enable2.png)
+If you can enabled full management and ran the DBSNMP grants above, you will see the Performance Hub:
+![DBM Enable](images/DBM-PerfHub.png)
 
 ## Connecting to ExaCS from your VCN
 
