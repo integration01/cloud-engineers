@@ -20,9 +20,18 @@ WebLogic Stack installations have a checkbox option to install a dynamic group a
 In order to uncheck this option, you must have a dynamic group and policy set ahead of time.  We have done this work for you, using:
 
 - Dynamic group `cloud-engineering-shared-wlsc-principals-dg`
-- Poicy `cloud-engineering-weblogic-dynamic-group-policies`
+- Policy `cloud-engineering-weblogic-dynamic-group-policies`
 
 In order to use this, prior to creating a WebLogic or SOA Stack in your compartment, simply add your compartment OCID to this existing Dynamic Group's definition.  By doing so, all of the policy statements above will apply.  When you uncheck the Create Policies checkbox, it will still work.
+
+## Cost / Usage for ADB (Implemented)
+
+Autonomous DB can look at cost and usage data via a resource principal.  We've created a shared dynamic group and policy to allow ADB to read the usage data.  
+
+- Dynamic group `cloud-engineering-shared-usage-adb-dg`
+- Policy `cloud-engineering-dynamic-group-shared`
+
+Add your resource OCID for your ADB instance to the DG to gain access to usage and cost reports.
 
 ## Suggestions
 
