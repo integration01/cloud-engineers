@@ -16,7 +16,7 @@ Not all of the following have been done for our tenancy yet, see below for what 
 ## Shared Dynamic Groups (Implemented)
 
 WebLogic Stack installations have a checkbox option to install a dynamic group and policy:
-
+![OCI Policies Checkbox](images/WLS-OCI-Policies.png)
 In order to uncheck this option, you must have a dynamic group and policy set ahead of time.  We have done this work for you, using:
 
 - Dynamic group `cloud-engineering-shared-wlsc-principals-dg`
