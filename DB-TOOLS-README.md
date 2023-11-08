@@ -17,7 +17,7 @@ Databases within shared ExaCS / ADB-D are enabled for use within ASR.  This can 
 ## SQL Worksheet / DB Tools
 The tenancy now allows for the use of SQL Worksheet.  You can create a connection within your own compartment.  Steps:
 1) Create a secret in the cloud-engineering-vault for the SYS password you used when creating your database
-2) Create a Connection under DB Tools using this secret (connect as SYSDBA).  Select the Private Endpoint called `EXACSPRI` within the `ExaCS` compartment.
+2) Create a Connection under DB Tools using this secret (connect as SYSDBA).  Select the Private Endpoint called `ExaCS-<region>-ClientSubnet-PE` within the `ExaCS` compartment.
    a) The wallet screen is optional
 4) Enter SQL Worksheet and ensure your connection is selected
 
@@ -40,7 +40,7 @@ GRANT EXECUTE ON DBMS_WORKLOAD_REPOSITORY to DBSNMP;
 ```
 2) If you chose a new password for DBSNMP, create another secret in the cloud-engineering-vault for the DBSNMP password you used above
 3) Follow the Database Management enablement wizard from your database (do not select "add policy" - this is done already)
-4) Choose the private endpoint called `ExaCS_PE` within the ExaCs compartment
+4) Choose the private endpoint called `ExaCS_DBM_<region>_ClientSubnet_PE` within the `cloud-engineering-shared/ExaCS` compartment
 5) Choose Full or Basic
 
 ### Database Management Example
