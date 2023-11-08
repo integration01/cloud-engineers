@@ -8,7 +8,7 @@ This page covers the following:
 All of these tools and services are available in our tenancy, but should be used with caution.  There are limits we must respect, so please follow the rules here and remember to terminate resources that are not needed.
 
 ## Autonomous Recovery Service
-Databases within shared ExaCS / ADB-D are enabled for use within ASR.  This can be enabled when the database is created or after the fact.  Once enabled, check both the Protected Databases screen and the Backups screen for your DB to ensure you are getting valid backups.
+Databases within shared ExaCS are enabled for use within ASR.  This can be enabled when the database is created or after the fact.  Once enabled, check both the Protected Databases screen and the Backups screen for your DB to ensure you are getting valid backups.
 
 ### ASR Example
 ![ASR Success](images/ASR-Successful.png)
