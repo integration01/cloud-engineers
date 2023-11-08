@@ -5,7 +5,7 @@ All Infrastructure and VM Clusters exist in the compartment called `(root) / clo
 
 ## Diagram of Compartment, VCN, Infra, Clusters, Connections
 
-![Diagram 11/8/2023](/images/ExaCS-ADB-Integration01-Nov 2023.png)
+![Diagram](/images/ExaCS-ADB-Integration01-Nov 2023.png)
 
 ## Creation of ExaCS Database
 Create an ExaCS DB
