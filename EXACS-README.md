@@ -3,9 +3,9 @@ These services both exist in the tenancy as a way for us to utilize dedicated re
 
 All Infrastructure and VM Clusters exist in the compartment called `(root) / cloud-engineering-shared / ExaCS `.  The VCN that all shared clusters utilizes is attached to a Dynamic Routing Gateway, and this docuemnt will describe how to connect to this DRG from any other VCN in the region.
 
-## Diagram of compartment, VCN
+## Diagram of Compartment, VCN, Infra, Clusters, Connections
 
-Diagram
+![Diagram 11/8/2023](/images/ExaCS-ADB-Integration01-Nov 2023.png)
 
 ## Creation of ExaCS Database
 Create an ExaCS DB
