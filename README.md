@@ -5,7 +5,8 @@ Each shared service our tenancy offers to engineers has its own document.
 
 * Shared Vault - [Vault](/SHARED-VAULT-README.md)
 * ExaCS / ADB-D - [ExaCS](/EXACS-README.md)
-* Database Services - [DB](/DATABASE-SERVICES-README.md)
+* Database Services - [Database Tools](/DB-TOOLS-README.md)
+* Dynamic Groups - [Dynamic Groups](/DYNAMIC-GROUPS-README.md)
 
 # Contacting the Admins
 
