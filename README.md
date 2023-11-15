@@ -18,7 +18,7 @@ Each shared service our tenancy offers to engineers has its own document.
 * ExaCS / ADB-D - [ExaCS](/EXACS-README.md)
 * Database Services - [Database Tools](/DB-TOOLS-README.md)
 * Dynamic Groups - [Dynamic Groups](/DYNAMIC-GROUPS.md)
-* Visual Builder Studio - TBD
+* Visual Builder Studio - [Visual Builder](/VISUAL-BUILDER-README.md)
 * Data Lake / Data Catalog - TBD
 
 # Contacting the Admins
