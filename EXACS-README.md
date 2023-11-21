@@ -7,12 +7,12 @@ All Infrastructure and VM Clusters exist in the compartment called `(root) / clo
 
 ![Diagram](images/ExaCS-ADB-Integration01-Nov%202023.png)
 
-## Creation of ExaCS Database
+# Creation of ExaCS Database
 Create an ExaCS DB within one of the existing ExaCS VM Clusters.  We recommend using your initials as part of the database name.  Also note the SCAN name and IP addresses for the chosen DB Cluster.  The database will be created without Data Guard, which you can do in the next step.
 ![VM Cluster](images/ExaCS-VM-Cluster.png)
 ![DB Create](images/ExaCS-New-DB.png)
 
-### Using Data Guard (ExaCS)
+## Using Data Guard (ExaCS)
 Once the database has been created, if Data Guard is required, set this up by associating the database with a peer in the same or remote region.  Be aware of cross-region charges that will occur.   
 ![DG Create](images/ExaCS-Enable-DataGuard.png)
 
@@ -20,10 +20,10 @@ The Data Guard association can be edited or terminated after creation.
 ![DG Edit](images/ExaCS-Edit-DataGuard.png)
 ![DG Edit](images/ExaCS-Terminate-DataGuard.png)
 
-### Using Database Management
+## Using Database Management
 Enablement of DB Management and Operations Insights has already been done for the tenancy.  You need to enable the database for DB Management by following the instructions [here](./DB-TOOLS-README.md)
 
-## Creation of ADB Database with or without Data Guard
+# Creation of ADB Database with or without Data Guard
 Creation of an ADB-D instance is done from within an Autonomous Container Database.  Use of Data Guard should be decided up front, as there are 2 ADB Autonomous Container Databases (ACD) to choose from.  One is enabled for Autonomous Data Guard, the other is not.  Placement of an ADB instance within one of these ACDs will dictate whether Data Guard is enabled for that database.
 ![ADB](images/ADB-ACD.png)
 
@@ -31,33 +31,41 @@ When choosing the Autonomous Container Databse, note the check box for Data Guar
 ![ADB-DG](images/ADB-DataGuard.png)
 ![ADB-No-DG](images/ADB-No-DataGuard.png)
 
-## VCN Connection Details
-Attaching your VCN, etc...
+# VCN Connection Details
+In order to access a database in the ExaCS VCN, you need to attach your VCN to the same DRG.  See the architecture diagram above for a visual.  This requires that your VCN be in a compatible CIDR range, have a subnet with a route rule to the DRG, and allow egress to the ExaCS VCN.  Screen shots are below for these configurations.  Additionally, it is convenient to use a VCN DNS Resolver with a private view, which allows VMs, applications, etc in your VCN to look up the SCAN Name of the database and get the IP addresses for the listener.
 
-### Ranges required for ExaCS
+## Ranges required for ExaCS and your VCN
 * Ashburn IAD - 172.16.100.0/24
 * Phoenix PHX - 172.17.100.0/24
 
-### DRG Attachment
-Attach your VCN to the DRG in either or both regions
+Your VCN should exist somewhere in the 10.0.0.0/8 range.  This is enormous, so please define a MUCH smaller subnet that will route to the DRG.  Example:
+![VCN-Subnet](images/VCN-Small-Subnet.png)
 
-### DNS Resolver
-DNS Resolver Private View to ExaCS VCN
+## DRG Attachment
+Attach your VCN to the DRG in the appropriate region:
+![VCN-Subnet](images/VCN-DRG-Attachment.png)
+
+## DNS Resolver
+DNS Resolver Private View to ExaCS VCN:
+![VCN-Subnet](images/VCN-DNS-Resolver.png)
 
 ### Route to DRG
-Add a route from your subnet's route table to DRG for the ExaCS CIDR Block
+Add a route from your subnet's route table to DRG for the ExaCS CIDR Block:
+![VCN-Subnet](images/VCN-Route-Rule.png)
 
 ### Security List or NSG
-Add Egress TCP/1521 for the block above
+Add Egress TCP/1521 for the block above:
+![VCN-Subnet](images/VCN-NSG-Egress.png)
 
 ## Connection Details
-Install SQL Plus on your VM in your VCN...
+In order to test connectivity or work with SQL Plus, install it on a VM in your own VCN:
 
+```bash
 sudo dnf install oracle-instantclient-release-el8
 sudo dnf install oracle-instantclient-basic
 sudo dnf install oracle-instantclient-sqlplus
-
-### Ensure nslookup and nc work
+```
+## Ensure nslookup and nc work
 Before connecting to any DB, please check both that the SCAN Listeners are able to nslookup and can connect on port 1521:
 
 #### ExaCS IAD VM Cluster
