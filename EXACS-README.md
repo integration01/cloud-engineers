@@ -8,19 +8,28 @@ All Infrastructure and VM Clusters exist in the compartment called `(root) / clo
 ![Diagram](images/ExaCS-ADB-Integration01-Nov%202023.png)
 
 ## Creation of ExaCS Database
-Create an ExaCS DB
+Create an ExaCS DB within one of the existing ExaCS VM Clusters.  We recommend using your initials as part of the database name.  Also note the SCAN name and IP addresses for the chosen DB Cluster.  The database will be created without Data Guard, which you can do in the next step.
+![VM Cluster](images/ExaCS-VM-Cluster.png)
+![DB Create](images/ExaCS-New-DB.png)
 
-### Using Data Guard
-After the database has been created, create a DG peer...
+### Using Data Guard (ExaCS)
+Once the database has been created, if Data Guard is required, set this up by associating the database with a peer in the same or remote region.  Be aware of cross-region charges that will occur.   
+![DG Create](images/ExaCS-Enable-DataGuard.png)
+
+The Data Guard association can be edited or terminated after creation.
+![DG Edit](images/ExaCS-Edit-DataGuard.png)
+![DG Edit](images/ExaCS-Terminate-DataGuard.png)
 
 ### Using Database Management
-Enable for DB Management
+Enablement of DB Management and Operations Insights has already been done for the tenancy.  You need to enable the database for DB Management by following the instructions [here](./DB-TOOLS-README.md)
 
-## Creation of ADB Database
-Within an ACD...
+## Creation of ADB Database with or without Data Guard
+Creation of an ADB-D instance is done from within an Autonomous Container Database.  Use of Data Guard should be decided up front, as there are 2 ADB Autonomous Container Databases (ACD) to choose from.  One is enabled for Autonomous Data Guard, the other is not.  Placement of an ADB instance within one of these ACDs will dictate whether Data Guard is enabled for that database.
+![ADB](images/ADB-ACD.png)
 
-### Using Data Guard
-Use of Data Guard should be decided up front, as there are 2 ADB Autonomous Container Databases (ACD) to choose from.  One is enabled for Autonomous Data Guard, the other is not.  Placement of an ADB instance within one of these ACDs will dictate whether Data Guard is enabled for that database.
+When choosing the Autonomous Container Databse, note the check box for Data Guard:
+![ADB-DG](images/ADB-DataGuard.png)
+![ADB-No-DG](images/ADB-No-DataGuard.png)
 
 ## VCN Connection Details
 Attaching your VCN, etc...
