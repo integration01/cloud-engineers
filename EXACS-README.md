@@ -38,23 +38,29 @@ In order to access a database in the ExaCS VCN, you need to attach your VCN to t
 * Ashburn IAD - 172.16.100.0/24
 * Phoenix PHX - 172.17.100.0/24
 
-Your VCN should exist somewhere in the 10.0.0.0/8 range.  This is enormous, so please define a MUCH smaller subnet that will route to the DRG.  Example:
+Your VCN should exist somewhere in the 10.0.0.0/8 range.  This is enormous, so please define a MUCH smaller subnet that will route to the DRG.  
+Example:
+
 ![VCN-Subnet](images/VCN-Small-Subnet.png)
 
 ## DRG Attachment
 Attach your VCN to the DRG in the appropriate region:
+
 ![VCN-Subnet](images/VCN-DRG-Attachment.png)
 
 ## DNS Resolver
 DNS Resolver Private View to ExaCS VCN:
+
 ![VCN-Subnet](images/VCN-DNS-Resolver.png)
 
 ### Route to DRG
 Add a route from your subnet's route table to DRG for the ExaCS CIDR Block:
+
 ![VCN-Subnet](images/VCN-Route-Rule.png)
 
 ### Security List or NSG
 Add Egress TCP/1521 for the block above:
+
 ![VCN-Subnet](images/VCN-NSG-Egress.png)
 
 ## Connection Details
@@ -113,10 +119,43 @@ Ncat: Connected to 172.16.100.192:1521.
 Ncat: 0 bytes sent, 0 bytes received in 0.01 seconds.
 ```
 ### Connect to ExaCS instance
+Use the `Database Connection` page from your ExaCS instance.  You can use either the long or easy connection.  This is because the DNS resolver is capable of resolving the SCAN listener of the database.
 
-### Connect to ADB-D instance
-Example of connecting to an ADB-D instance from your VM:
+![DB Connection](images/DB-Connection.png)
+
+#### Example (Easy Connect)
+```bash
+[opc@engineer-vm ~]$ sqlplus sys/XXXXXXXX@dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com:1521/AG.sub09231348061.exaiadvcn.oraclevcn.com as sysdba
+ 
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Nov 21 14:55:33 2023
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.21.0.0.0
+
+SQL> 
+```
+#### Example (Long)
+```bash
+[opc@stuff ~]$ sqlplus sys/XXXXXXXX@(DESCRIPTION=(CONNECT_TIMEOUT=5)(TRANSPORT_CONNECT_TIMEOUT=3)(RETRY_COUNT=3)(ADDRESS_LIST=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=172.16.100.161)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=172.16.100.220)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=172.16.100.207)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=AG.sub09231348061.exaiadvcn.oraclevcn.com))) as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Nov 21 15:01:13 2023
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.21.0.0.0
+
+SQL> 
+```
+### Connect to ADB Instance
+Connection to ADB can occur with or without downloading the Wallet.  Example using the connection string from the ADB Instance:
 
 ```bash
-[opc@engineer-vm ~]$ sqlplus admin@(DESCRIPTION=(CONNECT_TIMEOUT=90)(RETRY_COUNT=50)(RETRY_DELAY=3)(TRANSPORT_CONNECT_TIMEOUT=3)(ADDRESS_LIST=(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=host-knpvi-scan.sub09231348061.exaiadvcn.oraclevcn.com)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=AGADBDG_medium.atp.oraclecloud.com)))
+[opc@engineer-vm ~]$ sqlplus admin/XXXXXXXX@(DESCRIPTION=(CONNECT_TIMEOUT=90)(RETRY_COUNT=50)(RETRY_DELAY=3)(TRANSPORT_CONNECT_TIMEOUT=3)(ADDRESS_LIST=(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=host-knpvi-scan.sub09231348061.exaiadvcn.oraclevcn.com)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=AGADBDG_medium.atp.oraclecloud.com)))
 ```
