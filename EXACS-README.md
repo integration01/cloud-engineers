@@ -40,8 +40,7 @@ These ranges are for the ExaCS VCN, where all databases are created:
 * Ashburn IAD - 172.16.100.0/24
 * Phoenix PHX - 172.17.100.0/24
 
-Your VCN should exist somewhere in the 10.0.0.0/8 range.  This is enormous, so please define a MUCH smaller subnet that will route to the DRG.  
-Example:
+IMPORTANT: Your VCN should exist somewhere in the *10.0.0.0/8* or *11.0.0.0/8* ranges.  These are enormous, so please define a MUCH smaller VCN that will route to the DRG. 
 
 ![VCN-Subnet](images/VCN-Small-Subnet.png)
 
