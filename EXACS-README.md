@@ -35,6 +35,8 @@ When choosing the Autonomous Container Databse, note the check box for Data Guar
 In order to access a database in the ExaCS VCN, you need to attach your VCN to the same DRG.  See the architecture diagram above for a visual.  This requires that your VCN be in a compatible CIDR range, have a subnet with a route rule to the DRG, and allow egress to the ExaCS VCN.  Screen shots are below for these configurations.  Additionally, it is convenient to use a VCN DNS Resolver with a private view, which allows VMs, applications, etc in your VCN to look up the SCAN Name of the database and get the IP addresses for the listener.
 
 ## Ranges required for ExaCS and your VCN
+These ranges are for the ExaCS VCN, where all databases are created:
+
 * Ashburn IAD - 172.16.100.0/24
 * Phoenix PHX - 172.17.100.0/24
 
