@@ -26,6 +26,34 @@ The tenancy now allows for the use of SQL Worksheet.  You can create a connectio
 ![SQLW Conn](images/SQLWorksheet-Connection2.png)
 ![SQLW Conn](images/SQLWorksheet-Enabled.png)
 
+### Creating SQL Connection CLI
+If necessary, you can create the SQL Connection using the CLI.  In order for this to wortk, you will create the SYS password in Vault first, and then use the existing Private Endpoint.  You must also provide the existing DB connection string (from the DB details), and the advanced parameter for SYSDBA role if using SYS:
+
+```
+oci dbtools connection create-oracle-database \
+-c ocid1.compartment.oc1..aaaaaaaaw4hsuu67pfgyo5cbmhsh2savfywbae7ov4bb7saroeydkgviecbq \
+--display-name ExaCS-AGPHX2-PRI-SYS \
+--user-password-secret-id ocid1.vaultsecret.oc1.phx.amaaaaaaytsgwayaupk4bxdmt5jmzv2eoedc3t5zavniw76nfbc3bovqlxwq \
+--private-endpoint-id ocid1.databasetoolsprivateendpoint.oc1.phx.amaaaaaaytsgwayal65qdkzbn6l5gqxi7sapy7bbgib3wk4ustadzttf6kra \
+--connection-string phxdb-i25ga-scan.clientsubnetexa.exaphxvcn.oraclevcn.com:1521/AGPHX2_c6n_phx.clientsubnetexa.exaphxvcn.oraclevcn.com \
+--user-name SYS --advanced-properties '{"internal_logon":"SYSDBA"}'
+```
+
+The connection can be tested from the command line as well:
+```
+argregor@argregor-mac ~ % oci dbtools connection validate-oracle-database --connection-id ocid1.databasetoolsconnection.oc1.phx.amaaaaaaytsgwayaij6zantbui24nb5c2owri3d2zvwp2gwlxkg5b6kwei3a
+{
+  "data": {
+    "action": null,
+    "cause": null,
+    "code": "OK",
+    "database-name": "AGPHX2.CLIENTSUBNETEXA.EXAPHXVCN.ORACLEVCN.COM",
+    "database-version": "Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production\nVersion 19.21.0.0.0",
+    "message": "The Connection is correctly configured",
+    "type": "ORACLE_DATABASE"
+  }
+}
+```
 ## Database Management
 Databases on ExaCS are eligible for both Basic and Full management using Database Management.  Be judicious about using full management.  You can switch back and forth between versions and enabled/disabled.  Steps:
 1) Enable the DBSNMP user in your database.  You can do this via SQL Worksheet.  You can use the same password as sys or a new one 
