@@ -23,7 +23,7 @@ The tenancy now allows for the use of SQL Worksheet.  You can create a connectio
 
 ### SQL Worksheet Example
 ![SQLW Conn](images/SQLWorksheet-Connection.png)
-![SQLW Conn](images/SQLWorksheet-Enabled.png)
+![SQLW Conn](images/SQLWorksheet-Valid.png)
 
 ### Creating SQL Connection CLI
 If necessary, you can create the SQL Connection using the CLI.  In order for this to wortk, you will create the SYS password in Vault first, and then use the existing Private Endpoint.  You must also provide the existing DB connection string (from the DB details), and the advanced parameter for SYSDBA role if using SYS:
