@@ -55,7 +55,7 @@ argregor@argregor-mac ~ % oci dbtools connection validate-oracle-database --conn
 ```
 ## Database Management
 Databases on ExaCS are eligible for both Basic and Full management using Database Management.  Be judicious about using full management.  You can switch back and forth between versions and enabled/disabled.  Steps:
-1) Enable the DBSNMP user in your database.  You can do this via SQL Worksheet.  You can use the same password as sys or a new one 
+1) Enable the DBSNMP user in your database.  You can do this via SQL Worksheet as SYS user.  You can use the same password as SYS or a new one.
 ```sql
 ALTER USER dbsnmp ACCOUNT UNLOCK;
 ALTER USER dbsnmp IDENTIFIED BY xxxx;
