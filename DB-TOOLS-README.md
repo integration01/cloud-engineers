@@ -10,7 +10,7 @@ All of these tools and services are available in our tenancy, but should be used
 ## Autonomous Recovery Service
 Databases within shared ExaCS are enabled for use within ASR.  This can be enabled when the database is created or after the fact.  Once enabled, check both the Protected Databases screen and the Backups screen for your DB to ensure you are getting valid backups.
 
-### ASR Example
+### ARS Example
 ![ASR Success](images/ASR-Successful.png)
 ![ASR Protected DB](images/ASR-Protected-DB.png)
 
@@ -22,8 +22,7 @@ The tenancy now allows for the use of SQL Worksheet.  You can create a connectio
 4) Enter SQL Worksheet and ensure your connection is selected
 
 ### SQL Worksheet Example
-![SQLW Conn](images/SQLWorksheet-Connection1.png)
-![SQLW Conn](images/SQLWorksheet-Connection2.png)
+![SQLW Conn](images/SQLWorksheet-Connection.png)
 ![SQLW Conn](images/SQLWorksheet-Enabled.png)
 
 ### Creating SQL Connection CLI
