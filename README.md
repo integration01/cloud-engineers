@@ -4,7 +4,7 @@ This repo contains mostly documentation and examples for using the `orasenatdplt
 ## General Guidelines
 The following general guidelines should be adhered to.  Please read over these prior to creating resources:
 
-1) BYOL Only - For any service offering a BYOL or license-included SKU, NEVER choose License-Included.  The functionality is the same, so chooe BYOL for the lower price.
+1) BYOL Only - For any service offering a BYOL or license-included SKU, *NEVER* choose License-Included.  The functionality is the same, so chooe BYOL for the lower price.
 2) Cost - Our cost center pays for everything we spin up.  Do not spin up environments the stay running indefinitely.  The smallest possible OCPU count, storage, etc.
 3) Tagging / Naming - Please make sure names make sense.  Calling things "test" or "demo" with no additional context makes things hard to find.
 4) Compartments - Each engineer has their own (and can create) under `cloud-engineering`.  Put your resources there.
@@ -21,6 +21,10 @@ Each shared service our tenancy offers to engineers has its own document.
 * Visual Builder Studio - [Visual Builder](/VISUAL-BUILDER-README.md)
 * Data Lake / Data Catalog - TBD
 
+## Additional Topics
+
+* Sending Email from APEX on ADB-D - [APEX Mail](/ADB-APEX-MAIL.md)
+* 
 # Contacting the Admins
 
 Please use the Slack channel for any requests, as this is monitored - [#integration01_tenancy_collaboration](https://sales-tech-div.slack.com/archives/C01SPKENK1C)
