@@ -15,11 +15,11 @@ Start with your account and create an SMTP Credential. Record these values for u
 
 Next create an Approved Sender - this can be any email where your outbound emails will come "from".
 
-![Email Creds](images/APEX-EmailApprovedSender.png)
+![Email Sender](images/APEX-EmailApprovedSender.png)
 
 Finally, record the basic config details for host and port - we will use 25
 
-![Email Creds](images/APEX-Email-Config.png)
+![Email Config](images/APEX-Email-Config.png)
 
 ## Log into APEX
 
@@ -60,7 +60,7 @@ END;
 
 From any APEX page, the Download option offers an email option.  Put in your email and check the following SQL to see it in the Mail Queue:
 
-![Email Creds](images/APEX-Email-Test.png)
+![Email Queue](images/APEX-Email-Test.png)
 
 ```sql
 SELECT * from APEX_MAIL_QUEUE;
@@ -69,4 +69,10 @@ SELECT * from APEX_MAIL_LOG;
 
 You can also look under Email Delivery in OCI Console and see if your message was accepted and relayed:
 
-![Email Creds](images/APEX-EmailDelivery-Status.png)
+![Email Status](images/APEX-EmailDelivery-Status.png)
+
+## Success
+
+Email comes after a coule minutes:
+
+![Email Success](images/APEX-EmailSuccess.png)
