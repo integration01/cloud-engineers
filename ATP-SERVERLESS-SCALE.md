@@ -1,4 +1,4 @@
-# How to Scale Down ATP Scorage
+# How to Scale Down ATP Storage
 
 We now (as of ECPU release) are encouraging customers to convert to or initiate ATP-Serverless instances using the ECPU model, which allows for less than 1 OCPU to be allocated. 
 More importantly, the storage minimum for ATP is now in GB, instead of TB.  This means we can downsize any existing ATP instances to consume less storage.  Across hundreds of ATP instances,
