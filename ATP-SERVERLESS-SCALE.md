@@ -64,10 +64,10 @@ The following screen shots show how dramatic it can be to incorrectly size an AT
 
 ![LI](images/ATP-BYOL-Unscaled.png)
 
-### BYOL, 2 ECPU (auto-scale), 50 GB (auto-scale), Running 24/7
+### BYOL, 2 ECPU (auto-scale), 50 GB, Running 24/7
 
 ![LI](images/ATP-BYOL-Scaled-Down.png)
 
-### BYOL, 2 ECPU (auto-scale), 50 GB (auto-scale), Running 10hrs, 22 days a month
+### BYOL, 2 ECPU (auto-scale), 50 GB, Running 10hrs, 22 days a month
 
 ![LI](images/ATP-BYOL-Scaled-Limited-Uptime.png)
