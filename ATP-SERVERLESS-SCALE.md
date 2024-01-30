@@ -1,8 +1,8 @@
-# How to Scale Down ATP Storage
+# How to Scale Down ATP Serverless
 
-We now (as of ECPU release) are encouraging customers to convert to or initiate ATP-Serverless instances using the ECPU model, which allows for less than 1 OCPU to be allocated. 
-More importantly, the storage minimum for ATP is now in GB, instead of TB.  This means we can downsize any existing ATP instances to consume less storage.  Across hundreds of ATP instances,
-this adds up quickly.  Now that we can reduce storage, this document will show how.
+We now (as of ECPU release) are encouraging customers to convert to or initiate ATP-Serverless instances using the ECPU model, which allows for less than 1 OCPU to be allocated.  Auto-scaling CPU also can be enabled in order to scale to 3x during peak loads.
+
+More importantly, the storage minimum for ATP is now in GB, instead of TB.  This means we can downsize any existing ATP instances to consume less storage.  Across hundreds of ATP instances, this adds up quickly.  Now that we can reduce storage, this document will show how.
 
 ## Overall Process with Screen Shots
 
