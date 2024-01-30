@@ -18,3 +18,28 @@ To get to smaller storage, there are 2 steps that must be completed:
 NOTE - Storage Auto-scaling can be enabled as well, so that if you exceed the allocated amount, more storage can be provisioned for the instance.
 
 ### Screen Shots
+
+*Prior to migration
+
+![OCPU Model](images/1-ATP-S-OCPU.png)
+
+*Migration Screen
+
+![ECPU Update](images/2-ATP-S-Update.png)
+
+*After ECPU migration
+
+![After ECPU](images/3-ATP-S-After-Update.png)
+
+*Scaling Down
+
+![Scale Down](images/4-ATP-S-Scale-Down.png)
+
+*After Scaling
+
+![OCPU Model](images/5-ATP-S-OCPU.png)
+
+*With Storage Auto-Scale (Optional)
+
+![OCPU Model](images/6-ATP-S-Auto-Scale-Storage.png)
+
