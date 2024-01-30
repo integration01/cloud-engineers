@@ -39,7 +39,10 @@ NOTE - Storage Auto-scaling can be enabled as well, so that if you exceed the al
 
 ![After Scale](images/5-ATP-S-After-Scale-Down.png)
 
-*With Storage Auto-Scale (Optional)*
+*Storage Auto-Scale (Optional)*
 
 ![Storage Scale](images/6-ATP-S-Auto-Scale-Storage.png)
 
+*With Storage Auto-Scale Enabled (Optional)*
+
+![Storage Scale](images/7-ATP-S-Auto-Scale-Storage-Enabled.png)
