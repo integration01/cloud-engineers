@@ -19,27 +19,27 @@ NOTE - Storage Auto-scaling can be enabled as well, so that if you exceed the al
 
 ### Screen Shots
 
-*Prior to migration
+*Prior to migration*
 
 ![OCPU Model](images/1-ATP-S-OCPU.png)
 
-*Migration Screen
+*Migration Screen*
 
 ![ECPU Update](images/2-ATP-S-Update.png)
 
-*After ECPU migration
+*After ECPU migration*
 
 ![After ECPU](images/3-ATP-S-After-Update.png)
 
-*Scaling Down
+*Scaling Down*
 
 ![Scale Down](images/4-ATP-S-Scale-Down.png)
 
-*After Scaling
+*After Scaling*
 
-![OCPU Model](images/5-ATP-S-OCPU.png)
+![After Scale](images/5-ATP-S-After-Scale-Down.png)
 
-*With Storage Auto-Scale (Optional)
+*With Storage Auto-Scale (Optional)*
 
-![OCPU Model](images/6-ATP-S-Auto-Scale-Storage.png)
+![Storage Scale](images/6-ATP-S-Auto-Scale-Storage.png)
 
