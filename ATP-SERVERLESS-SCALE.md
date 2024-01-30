@@ -15,31 +15,31 @@ To get to smaller storage, there are 2 steps that must be completed:
 1) Convert to ECPU model (1 OCPU -> 4 ECPU)
 2) After conversion, scale storage into GB, using an amount closer to what is needed
 
-NOTE - Storage Auto-scaling can be enabled as well, so that if you exceed the allocated amount, more storage can be provisioned for the instance.
+*NOTE - Storage Auto-scaling can be enabled as well, so that if you exceed the allocated amount, more storage can be provisioned for the instance.*
 
-### Screen Shots
+*REMINDER - Also take this opportunity to ensure that instances use BYOL Licensing, instead of License Included*
 
-*Prior to migration*
+### Prior to migration
 
 ![OCPU Model](images/1-ATP-S-OCPU.png)
 
-*Migration Screen*
+### Migration Screen
 
 ![ECPU Update](images/2-ATP-S-Update.png)
 
-*After ECPU migration*
+### After ECPU migration
 
 ![After ECPU](images/3-ATP-S-After-Update.png)
 
-*Scaling Down*
+### Scaling Down
 
 ![Scale Down](images/4-ATP-S-Scale-Down.png)
 
-*After Scaling*
+### After Scaling
 
 ![After Scale](images/5-ATP-S-After-Scale-Down.png)
 
-*Storage Auto-Scale (Optional)*
+### Storage Auto-Scale (Optional)
 
 ![Storage Scale](images/6-ATP-S-Auto-Scale-Storage.png)
 
