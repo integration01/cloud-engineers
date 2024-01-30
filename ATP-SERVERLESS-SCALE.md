@@ -4,6 +4,9 @@ We now (as of ECPU release) are encouraging customers to convert to or initiate 
 
 More importantly, the storage minimum for ATP is now in GB, instead of TB.  This means we can downsize any existing ATP instances to consume less storage.  Across hundreds of ATP instances, this adds up quickly.  Now that we can reduce storage, this document will show how.
 
+To see how dramatic this cost reduction can be, click below.
+[Cost Analysis](#cost-analysis)
+
 ## Overall Process with Screen Shots
 
 The process is simple.  Existing instances must be:
@@ -43,6 +46,28 @@ To get to smaller storage, there are 2 steps that must be completed:
 
 ![Storage Scale](images/6-ATP-S-Auto-Scale-Storage.png)
 
-*With Storage Auto-Scale Enabled (Optional)*
+### With Storage Auto-Scale Enabled (Optional)
 
 ![Storage Scale](images/7-ATP-S-Auto-Scale-Storage-Enabled.png)
+
+## Cost Analysis
+
+Here are some cost comparisons.  Note that OCPU model is not available in the cost calculator, so a 1 OCPU instance is represented as a 4 ECPU 100% peak, such that it consumes 1 full OCPU when on.
+
+The following screen shots show how dramatic it can be to incorrectly size an ATP instance and leave it running 24/7.  Over hundreds of instances in our lab (or at a customer), this can add up quickly.
+
+### License Included, 1 OCPU, 1 TB, Running 24/7
+
+![LI](images/ATP-LI-Unscaled.png)
+
+### BYOL, 1 OCPU, 1 TB, Running 24/7
+
+![LI](images/ATP-BYOL-Unscaled.png)
+
+### BYOL, 2 ECPU (auto-scale), 50 GB (auto-scale), Running 24/7
+
+![LI](images/ATP-BYOL-Scaled-Down.png)
+
+### BYOL, 2 ECPU (auto-scale), 50 GB (auto-scale), Running 10hrs, 22 days a month
+
+![LI](images/ATP-BYOL-Scaled-Limited-Uptime.png)
