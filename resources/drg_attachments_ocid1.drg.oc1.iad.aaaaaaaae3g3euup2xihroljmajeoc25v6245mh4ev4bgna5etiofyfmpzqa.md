@@ -1,8 +1,7 @@
-Report generated: 2024-03-07
+Report generated: 2024-03-08
 |Attachment Name|CIDR Range|Compartment|
 |:---|:---|---:|
 | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
-| usage2adw-vcn-attachment | 10.0.0.0/16 | admin |
 | DRG01_To_exa | 11.0.0.0/16 | Arpit |
 | ag-exa-vcn-attachment | 10.0.1.0/24 | CIS235-network-cmp |
 | cloud-engineering-shared-landing-zone-vcn-drg-attachment | 10.241.0.0/16 | CISLZ-network-cmp |
