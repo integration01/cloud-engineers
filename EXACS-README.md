@@ -6,7 +6,9 @@ These services both exist in the tenancy as a way for us to utilize dedicated re
 
 All Infrastructure and VM Clusters exist in the compartment called `(root) / cloud-engineering-shared / ExaCS `.  The VCN that all shared clusters utilizes is attached to a Dynamic Routing Gateway, and this docuemnt will describe how to connect to this DRG from any other VCN in the region.
 
-## Diagram of Compartment, VCN, Infra, Clusters, Connections
+For patching details, see [Patching and DB Homes](#exacs-patching-and-database-homes).
+
+# Diagram of Compartment, VCN, Infra, Clusters, Connections
 
 ![Diagram](images/ExaCS-ADB-Integration01-Nov%202023.png)
 
@@ -173,3 +175,18 @@ Connection to ADB can occur with or without downloading the Wallet.  Example usi
 ```bash
 [opc@engineer-vm ~]$ sqlplus admin/XXXXXXXX@(DESCRIPTION=(CONNECT_TIMEOUT=90)(RETRY_COUNT=50)(RETRY_DELAY=3)(TRANSPORT_CONNECT_TIMEOUT=3)(ADDRESS_LIST=(LOAD_BALANCE=ON)(ADDRESS=(PROTOCOL=TCP)(HOST=host-knpvi-scan.sub09231348061.exaiadvcn.oraclevcn.com)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=AGADBDG_medium.atp.oraclecloud.com)))
 ```
+
+# ExaCS Patching and Database Homes
+
+The ExaCS environments are patched regularly, in order to ensure we can meet the needs of our team, supporting the latest available versions (as possible).  All of the VM Clusters have been updated to Oracle Linux 8 (VM Patches 23.x).
+
+Additionally, we keep the latest Grid Infrastructure up to date, and it is our goal to provide multiple DB Homes, without users needing to or wanting to create new homes for a single DB.
+
+## Naming Conventions
+
+DB Homes are named as follows:
+* `dbhome-19c-keep-updated` - This should be versioned to the latest available Grid version.  Example, 19.22 as of early 2024
+* `dbhome-19c-n-minus-1` - Version N-1, whatever the latest version is, minus 1.  Example, 19.21
+* `dbhome-19c-n-minus-2` - Version N-2, whatever the latest version is, minus 2. Example, 19.20
+
+Engineers creating databases should NOT create a new DB Home, but instead use one of the provided homes on each VM Cluster.  If there is specific need for another home, let us know and we can create that.
