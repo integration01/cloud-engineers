@@ -1,4 +1,7 @@
 # Using ExaCS or ADB-D
+
+**UPDATE - Please read the [VCN Details](#vcn-connection-details) Section PRIOR to creating a VCN that you plan to attach to ExaCS**
+
 These services both exist in the tenancy as a way for us to utilize dedicated resources and save on costs of using serverless Autonomous and DBaaS.  We have set these services up in such a way that engineers can use them.
 
 All Infrastructure and VM Clusters exist in the compartment called `(root) / cloud-engineering-shared / ExaCS `.  The VCN that all shared clusters utilizes is attached to a Dynamic Routing Gateway, and this docuemnt will describe how to connect to this DRG from any other VCN in the region.
