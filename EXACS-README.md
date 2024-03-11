@@ -42,6 +42,15 @@ These ranges are for the ExaCS VCN, where all databases are created:
 
 IMPORTANT: Your VCN should exist somewhere in the *10.0.0.0/8* or *11.0.0.0/8* ranges.  These are enormous, so please define a MUCH smaller VCN that will route to the DRG. 
 
+For a CURRENT list of in-use CIDR blocks, please see this link:
+[CIDR Blocks](resources/drg_attachments_latest.md)
+
+Using this list, please determine an unused X and Y to make a VCN.  The pattern could look like this:
+* 10.X.Y.0/24 (Ashburn) 
+* 11.X.Y.0/24 (Phoenix)
+
+As long as the same X and Y range is open in both regions, it makes sense to use the same X and Y in both, and then build your subnets in the VCN accordingly.
+ 
 ![VCN-Subnet](images/VCN-Small-Subnet.png)
 
 ## DRG Attachment
