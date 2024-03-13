@@ -1,4 +1,4 @@
-Report generated: 2024-03-12
+Report generated: 2024-03-13
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -15,10 +15,9 @@ iad | drg-exa-iad | 10.0.0.0/24 | rkab |
 iad | to-drg-exacs-ash | 10.0.0.0/16 | skotagiri_compartment |
 iad | dgr_demo | 10.10.0.0/24 | sprovost |
 iad | drg-attach1 | 172.16.200.0/26 | Vivek |
+phx | drgattachment20240312151937 | 11.250.0.0/24 | admin |
 phx | DRG01_To_exa | 10.0.0.0/16 | Arpit |
 phx | agregory-CIS235-VCN-drg-attachment | 11.0.1.0/24 | CIS235-network-cmp |
-phx | CISLZ-0-vcn-drg-attachment | 11.250.0.0/16 | CISLZ-network-cmp |
-phx | CISLZ-0-exa-vcn-drg-attachment | 11.251.0.0/24 | CISLZ-network-cmp |
 phx | drg-att-exa-phx | 11.1.1.0/24 | corozco |
 phx | dagarwal-phx-drg | 10.18.91.0/24 | dagarwal |
 phx | exa-phx-vcn-attachment | 172.17.100.0/23 | ExaCS |
