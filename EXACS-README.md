@@ -42,8 +42,8 @@ In order to access a database in the ExaCS VCN, you need to attach your VCN to t
 ## Ranges required for ExaCS and your VCN
 These ranges are for the ExaCS VCN, where all databases are created:
 
-* Ashburn IAD - 172.16.100.0/24
-* Phoenix PHX - 172.17.100.0/24
+* Ashburn IAD - 172.16.100.0/23
+* Phoenix PHX - 172.17.100.0/23
 
 IMPORTANT: Your VCN should exist somewhere in the *10.0.0.0/8* or *11.0.0.0/8* ranges.  These are enormous, so please define a MUCH smaller VCN that will route to the DRG. 
 
@@ -65,17 +65,21 @@ Attach your VCN to the DRG in the appropriate region:
 ![VCN-Subnet](images/VCN-DRG-Attachment.png)
 
 ## DNS Resolver
-DNS Resolver Private View to ExaCS VCN:
+Add the EXISTING DNS Resolver Private View to ExaCS VCN - you will need to use the compartment browser to find `cloud-engineering-shared/ExaCS`:
 
 ![VCN-Subnet](images/VCN-DNS-Resolver.png)
 
 ### Route to DRG
 Add a route from your subnet's route table to DRG for the ExaCS CIDR Block:
 
+**Note - screen shot needs update - should read 172.16.100.0/23**
+
 ![VCN-Subnet](images/VCN-Route-Rule.png)
 
 ### Security List or NSG
 Add Egress TCP/1521 for the block above:
+
+**Note - screen shot needs update - should read 172.16.100.0/23**
 
 ![VCN-Subnet](images/VCN-NSG-Egress.png)
 
