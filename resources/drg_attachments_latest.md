@@ -1,4 +1,4 @@
-Report generated: 2024-03-15
+Report generated: 2024-03-16
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -7,6 +7,7 @@ iad | ag-exa-vcn-attachment | 10.0.1.0/24 | CIS235-network-cmp |
 iad | cloud-engineering-shared-landing-zone-vcn-drg-attachment | 10.241.0.0/16 | CISLZ-network-cmp |
 iad | cis262exavcn-drg-attachment | 10.239.0.0/24 | CISLZ-network-cmp |
 iad | toExa | 72.16.0.0/16 | colrobin |
+iad | to-drg-exa-ash | 10.13.13.0/24 | cveenstr |
 iad | drg-attachment-exa-iad-vcn | 172.16.100.0/23 | ExaCS |
 iad | to-drg-exa-ash-LD | 172.16.110.0/24 | Leona |
 iad | to-drg-exa-ash | 10.0.16.0/20 | markshar |
@@ -14,6 +15,7 @@ iad | drg-to-exa-iad | 10.60.0.0/24 | rkab |
 iad | drg-exa-iad | 10.0.0.0/24 | rkab |
 iad | to-drg-exacs-ash | 10.0.0.0/16 | skotagiri_compartment |
 iad | dgr_demo | 10.10.0.0/24 | sprovost |
+iad | sweiberle-ash-vnc-drg | 10.27.57.0/24 | sweiberle-comp |
 iad | drg-attach1 | 172.16.200.0/26 | Vivek |
 phx | drgattachment20240312151937 | 11.250.0.0/24 | admin |
 phx | DRG01_To_exa | 10.0.0.0/16 | Arpit |
@@ -28,4 +30,4 @@ phx | jodrgattchment | 10.27.93.0/24 | jrolsen |
 phx | DRG-TO-EXA-KK | 10.71.0.0/24 | KabirKazimi |
 phx | drg-to-exa-phx | 10.61.0.0/24 | rkab |
 phx | skotagiri_vcn_to_exacs_phx_drg | 10.33.33.0/24 | skotagiri_compartment |
-phx | sweiberle-phx-vnc-drt | 10.27.56.0/24 | sweiberle-comp |
+phx | sweiberle-phx-vnc-drg | 10.27.56.0/24 | sweiberle-comp |
