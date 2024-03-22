@@ -53,7 +53,7 @@ Cloning involves choosing a VM Cluster with an available Database to perform a r
 
 Once complete (10-15 min), log into the new cloned DB.  Here is the connection detail:
 
-![Clone Source](images/EXACS-CLONE-TARGET.png)
+![Clone Target](images/EXACS-CLONE-TARGET.png)
 
 And the new connection detail:
 
@@ -76,6 +76,35 @@ SQL> select name from v$DATABASE;
 NAME
 ---------
 AGIADS01
+```
+
+Looking at the target database, log in as the CDB and see all of the PDBs:
+
+```bash
+[opc@stuff ~]$ sqlplus sys@kompally-zs9ta-scan.sub09231348061.exaiadvcn.oraclevcn.com:1521/AGIADS01_jrj_iad.sub09231348061.exaiadvcn.oraclevcn.com as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Mar 22 16:02:32 2024
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+SQL> COLUMN NAME FORMAT A15
+COLUMN RESTRICTED FORMAT A10
+COLUMN OPEN_TIME FORMAT A30
+
+SELECT NAME, OPEN_MODE, RESTRICTED, OPEN_TIME FROM V$PDBS;
+SQL> SQL> SQL> SQL>
+NAME		OPEN_MODE  RESTRICTED OPEN_TIME
+--------------- ---------- ---------- ------------------------------
+PDB$SEED	READ ONLY  NO	      20-MAR-24 01.35.13.419 PM +00:00
+PDB1		READ WRITE NO	      20-MAR-24 01.35.22.953 PM +00:00
+PDB1CLONE	READ WRITE NO	      22-MAR-24 03.41.25.583 PM +00:00
 ```
 
 At this point the source database could be terminated, provided all PDBs are cloned or migrated.
@@ -108,8 +137,35 @@ MIGRSRC
 
 Now migrate the PDB to another Database. Note that you can change the name here, as shown.
 
-![Clone Source](images/EXACS-RELOCATE-SOURCE.png)
+![Relocate Source](images/EXACS-RELOCATE-SOURCE.png)
 
 Once complete, verify that you can log in:
 
+![Relocate Target](images/EXACS-RELOCATE-TARGET.png)
 
+```bash
+[opc@stuff ~]$ sqlplus sys@kompally-zs9ta-scan.sub09231348061.exaiadvcn.oraclevcn.com:1521/MIGRSRC_PDB1.paas.oracle.com as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Mar 22 16:05:27 2024
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+SQL> select name from v$DATABASE;
+
+NAME
+---------
+MIGRTGT
+```
+
+### Termination
+
+Terminate the source database once the target of cloning or relocation is complete:
+
+![Terminate](images/EXACS-TERMINATE-DB.png)
