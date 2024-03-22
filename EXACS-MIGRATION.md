@@ -23,8 +23,83 @@ DG Commands TBD
 
 ### PDB Clone
 
-In this method, you will be able to make a clone of a PDB to another Database (on another VM Cluster), and then verify it works, then terminate the original.
+In this method, you will be able to make a clone of a PDB to another Database (on another VM Cluster), and then verify it works, then terminate the original.  Before cloning, check source connectivity:
+
+```bash
+
+[opc@stuff ~]$ sqlplus sys@dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com:1521/MIGRSRC_PDB1.paas.oracle.com as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Mar 22 15:31:34 2024
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+SQL> select name from v$DATABASE;
+
+NAME
+---------
+MIGRSRC
+```
+
+Cloning involves choosing a VM Cluster with an available Database to perform a remote clone to.
 
 ### PDB Relocate
 
-Similar to cloning, the DB itself is moved to an entirely different database.  
+Similar to cloning, the DB itself is moved to an entirely different database.  In the example below, the MIGRSRC Database has a PDB named PDB1 that we want to migrate to a Database called MIGRTGT on another VM Cluster.  Start by verifying connectivity to the source:
+
+```bash
+
+[opc@stuff ~]$ sqlplus sys@dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com:1521/MIGRSRC_PDB1.paas.oracle.com as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Mar 22 15:31:34 2024
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+SQL> select name from v$DATABASE;
+
+NAME
+---------
+MIGRSRC
+```
+Now clone the database to the target database.  
+
+Once complete (10-15 min), log into the new cloned DB.  Here is the connection detail:
+
+
+
+```bash
+[opc@stuff ~]$ sqlplus sys@kompally-zs9ta-scan.sub09231348061.exaiadvcn.oraclevcn.com:1521/AGIADS01_PDB1CLONE.paas.oracle.com as sysdba
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Mar 22 15:49:23 2024
+Version 19.13.0.0.0
+
+Copyright (c) 1982, 2021, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+SQL> select name from v$DATABASE;
+
+NAME
+---------
+AGIADS01
+```
+
+Now migrate the PDB to another Database. Note that you can change the name here, as shown.
+
