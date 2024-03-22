@@ -1,6 +1,6 @@
 # Database Migration (WIP)
 
-It may be necessary to demonstrate a migration between ExaCS environments.  This may be parto f a demop or POC, or it may be required as we (administrators) re-do things or make updates.  For examplke, if a VM Cluster is to be de-commissioned, but you do not want to lose your database, this docuemnt gives you a couple of options.  Read on.
+It may be necessary to demonstrate a migration between ExaCS environments.  This may be part of a demo or POC, or it may be required as we (administrators) re-do things or make updates.  For examplke, if a VM Cluster is to be de-commissioned, but you do not want to lose your database, this docuemnt gives you a couple of options.  Read on.
 
 ## Options
 
@@ -17,9 +17,29 @@ For the Clone and Relocate options, you will need a Source and Target Container 
 
 In this type of migration, you will first set up Oracle Data Guard, and then ensure it is working properly.  Following that, you will execute a failover, which will break the DG configuration, at which time you can terminate the (old)primary database.
 
-Screen Shots TBD
+First, create a standby database:
 
-DG Commands TBD
+![Data Guard 1](images/EXACS-DATAGUARD1.png)
+![Data Guard 2](images/EXACS-DATAGUARD2.png)
+
+Verify that Data Guard is working:
+```
+TBD
+```
+
+Perform a Failover from the Standby using OCI Console or DGMGRL:
+
+```
+TBD
+```
+
+Once the Failover is complete, verify connectivity and Open Mode for the standby (now primary) database:
+
+```
+TBD
+```
+
+Now the source DB can be terminated.
 
 ### PDB Clone
 
