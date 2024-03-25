@@ -22,24 +22,65 @@ First, create a standby database:
 ![Data Guard 1](images/EXACS-DATAGUARD1.png)
 ![Data Guard 2](images/EXACS-DATAGUARD2.png)
 
-Verify that Data Guard is working:
-```
-TBD
-```
+Verify that Data Guard database is running:
 
-Perform a Failover from the Standby using OCI Console or DGMGRL:
+![Data Guard Failover](images/EXACS-DATAGUARD-STANDBY.png)
 
-```
-TBD
-```
+Perform a Failover from the Standby using OCI Console (or DGMGRL):
+
+![Data Guard Failover](images/EXACS-DATAGUARD-ROLES.png)
+
+![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER.png) ![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER2.png)
 
 Once the Failover is complete, verify connectivity and Open Mode for the standby (now primary) database:
 
+![Data Guard Connection](images/EXACS-DATAGUARD-CONNECT.png)
+
 ```
-TBD
+[opc@utility-phx ~]$ sqlplus sys@phxdb-i25ga-scan.clientsubnetexa.exaphxvcn.oraclevcn.com:1521/MIGRDGNEW.clientsubnetexa.exaphxvcn.oraclevcn.com as sysdba
+
+SQL*Plus: Release 21.0.0.0.0 - Production on Mon Mar 25 19:19:21 2024
+Version 21.12.0.0.0
+
+Copyright (c) 1982, 2022, Oracle.  All rights reserved.
+
+Enter password:
+
+Connected to:
+Oracle Database 19c EE Extreme Perf Release 19.0.0.0.0 - Production
+Version 19.22.0.0.0
+
+SQL>
+SQL>
+SQL>
+SQL> COLUMN NAME FORMAT A15
+COLUMN RESTRICTED FORMAT A10
+COLUMN OPEN_TIME FORMAT A30
+
+SELECT NAME, OPEN_MODE, RESTRICTED, OPEN_TIME FROM V$PDBS;SQL> SQL> SQL> SQL>
+
+NAME		OPEN_MODE  RESTRICTED OPEN_TIME
+--------------- ---------- ---------- ------------------------------
+PDB$SEED	READ ONLY  NO	      25-MAR-24 07.15.12.517 PM +00:
+				      00
+
+PDB1		READ WRITE NO	      25-MAR-24 07.15.19.367 PM +00:
+				      00
+
+
 ```
 
 Now the source DB can be terminated.
+
+![Terminate Old Primary](images/EXACS-DATAGUARD-TERMINATE.png)
+
+The new Primary database no longer has a connection to the old primary within a couple of minutes:
+
+![New Primary](images/EXACS-DATAGUARD-NEW.png)
+
+Finally, re-enable automatic backup for the database (if required):
+
+![Autonomous Recovery](images/EXACS-DATAGUARD-ENABLE-BACKUP.png)
 
 ### PDB Clone
 
