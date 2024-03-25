@@ -20,17 +20,20 @@ In this type of migration, you will first set up Oracle Data Guard, and then ens
 First, create a standby database:
 
 ![Data Guard 1](images/EXACS-DATAGUARD1.png)
+
+Pick a home of the same version as the Primary:
+
 ![Data Guard 2](images/EXACS-DATAGUARD2.png)
 
-Verify that Data Guard database is running:
+Verify that Data Guard database is running (and that no backups are configured):
 
 ![Data Guard Failover](images/EXACS-DATAGUARD-STANDBY.png)
 
 Perform a Failover from the Standby using OCI Console (or DGMGRL):
 
-![Data Guard Failover](images/EXACS-DATAGUARD-ROLES.png)
+![Data Guard Failover](images/EXACS-DATAGUARD-STANDBY-ROLES.png)
 
-![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER.png) ![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER2.png)
+![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER.png) -> ![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER2.png)
 
 Once the Failover is complete, verify connectivity and Open Mode for the standby (now primary) database:
 
