@@ -33,7 +33,9 @@ Perform a Failover from the Standby using OCI Console (or DGMGRL):
 
 ![Data Guard Failover](images/EXACS-DATAGUARD-STANDBY-ROLES.png)
 
-![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER.png) -> ![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER2.png)
+![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER.png) 
+
+![Data Guard Failover](images/EXACS-DATAGUARD-FAILOVER2.png)
 
 Once the Failover is complete, verify connectivity and Open Mode for the standby (now primary) database:
 
