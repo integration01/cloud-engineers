@@ -5,15 +5,15 @@ It may be necessary to demonstrate a migration between ExaCS environments.  This
 ## Options
 
 The options here:
-* Set up Data Guard and Fail Over
-* Relocate a PDB
-* Clone a PDB
+* [Set up Data Guard and Fail Over](#data-guard)
+* [Clone a PDB](#pdb-clone)
+* [Relocate a PDB](#pdb-relocate)
 
 Data Guard is going to give you (and customers) the best experience in terms of uptime and availability.  It can be used for a migration as well.
 
 For the Clone and Relocate options, you will need a Source and Target Container Database on different VM Clusters in the same region.  For these actions, it is recommended to have the source and target database at the same version, and retain the same administrator password.
 
-### Data Guard
+## Data Guard
 
 In this type of migration, you will first set up Oracle Data Guard, and then ensure it is working properly.  Following that, you will execute a failover, which will break the DG configuration, at which time you can terminate the (old)primary database.
 
@@ -87,7 +87,7 @@ Finally, re-enable automatic backup for the database (if required):
 
 ![Autonomous Recovery](images/EXACS-DATAGUARD-ENABLE-BACKUP.png)
 
-### PDB Clone
+## PDB Clone
 
 In this method, you will be able to make a clone of a PDB to another Database (on another VM Cluster), and then verify it works, then terminate the original.  Before cloning, check source connectivity:
 
@@ -175,7 +175,7 @@ PDB1CLONE	READ WRITE NO	      22-MAR-24 03.41.25.583 PM +00:00
 
 At this point the source database could be terminated, provided all PDBs are cloned or migrated.
 
-### PDB Relocate
+## PDB Relocate
 
 Similar to cloning, the DB itself is moved to an entirely different database.  In the example below, the MIGRSRC Database has a PDB named PDB1 that we want to migrate to a Database called MIGRTGT on another VM Cluster.  Start by verifying connectivity to the source:
 
