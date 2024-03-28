@@ -1,9 +1,9 @@
 # Using Database-Related Tools and Services
 
 This page covers the following:
-- Using Autonomous Recovery Service
-- Using SQL Worksheet
-- Using Database Management
+- [Using Autonomous Recovery Service](#autonomous-recovery-ervice)
+- [Using SQL Worksheet](#sql-worksheet)
+- [Using Database Management](#database-management)
 
 All of these tools and services are available in our tenancy, but should be used with caution.  There are limits we must respect, so please follow the rules here and remember to terminate resources that are not needed.
 
@@ -14,7 +14,7 @@ Databases within shared ExaCS are enabled for use within ASR.  This can be enabl
 ![ASR Success](images/ASR-Successful.png)
 ![ASR Protected DB](images/ASR-Protected-DB.png)
 
-## SQL Worksheet / DB Tools
+## SQL Worksheet
 The tenancy now allows for the use of SQL Worksheet.  You can create a connection within your own compartment.  Steps:
 1) Create a secret in the cloud-engineering-vault for the SYS password you used when creating your database
 2) Create a Connection under DB Tools using this secret (connect as SYSDBA).  Select the Private Endpoint called `ExaCS-<region>-ClientSubnet-PE` within the `cloud-engineering-shared/ExaCS` compartment.
@@ -73,5 +73,7 @@ GRANT EXECUTE ON DBMS_WORKLOAD_REPOSITORY to DBSNMP;
 ### Database Management Example
 ![DBM Enable](images/DBM-Enable1.png)
 ![DBM Enable](images/DBM-Enable2.png)
+
 If you can enabled full management and ran the DBSNMP grants above, you will see the Performance Hub:
+
 ![DBM Enable](images/DBM-PerfHub.png)
