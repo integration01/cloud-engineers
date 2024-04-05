@@ -40,14 +40,12 @@ When choosing the Autonomous Container Databse, note the check box for Data Guar
 In order to access a database in the ExaCS VCN, you need to attach your VCN to the same DRG.  See the architecture diagram above for a visual.  This requires that your VCN be in a compatible CIDR range, have a subnet with a route rule to the DRG, and allow egress to the ExaCS VCN.  Screen shots are below for these configurations.  Additionally, it is convenient to use a VCN DNS Resolver with a private view, which allows VMs, applications, etc in your VCN to look up the SCAN Name of the database and get the IP addresses for the listener.
 
 ## Ranges required for ExaCS and your VCN
-These ranges are for the ExaCS VCN, where all databases are created:
+These are the Client Subnet ranges are for the ExaCS VCN, where all databases are created:
 
-* Ashburn IAD - 172.16.100.0/23
-* Phoenix PHX - 172.17.100.0/23
+* Ashburn IAD - 172.16.100.128/25
+* Phoenix PHX - 172.17.100.128/25
 
-IMPORTANT: Your VCN should exist somewhere in the *10.0.0.0/8* or *11.0.0.0/8* ranges.  These are enormous, so please define a MUCH smaller VCN that will route to the DRG. 
-
-## Determining your VCN CIDR
+### Determining your VCN CIDR
 
 For a CURRENT list of in-use CIDR blocks, please see this link:
 [CIDR Blocks](resources/drg_attachments_latest.md)
@@ -70,18 +68,19 @@ Add the EXISTING DNS Resolver Private View to ExaCS VCN - you will need to use t
 ![VCN-Subnet](images/VCN-DNS-Resolver.png)
 
 ### Route to DRG
-Add a route from your subnet's route table to DRG for the ExaCS CIDR Block:
-
-**Note - screen shot needs update - should read 172.16.100.0/23**
+Add a route from your subnet's route table to DRG for the ExaCS Client Subnet CIDR Block:
 
 ![VCN-Subnet](images/VCN-Route-Rule.png)
 
 ### Security List or NSG
 Add Egress TCP/1521 for the block above:
 
-**Note - screen shot needs update - should read 172.16.100.0/23**
-
 ![VCN-Subnet](images/VCN-NSG-Egress.png)
+
+### Client VM
+In your VCN, use the established security list or NSG to ensure connectivity.  In the exampel below, the NSG is added to the VM, ensuring egress to the ExaCS client range:
+
+![VCN-Subnet](images/ExaCS-Client-VM-NSG.png)
 
 ## Connection Details
 In order to test connectivity or work with SQL Plus, install it on a VM in your own VCN:
@@ -94,29 +93,29 @@ sudo dnf install oracle-instantclient-sqlplus
 ## Ensure nslookup and nc work
 Before connecting to any DB, please check both that the SCAN Listeners are able to nslookup and can connect on port 1521:
 
-#### ExaCS IAD VM Cluster
+#### ExaCS IAD VM Cluster (example)
 
 ```bash
-[opc@engineer-vm ~]$ nslookup dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com
+[opc@engineer-vm ~]$ nslookup exacs-iad01-3tjlf-scan.sub09231348061.exaiadvcn.oraclevcn.com
 Server:		169.254.169.254
 Address:	169.254.169.254#53
 
 Non-authoritative answer:
-Name:	dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com
-Address: 172.16.100.207
-Name:	dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com
-Address: 172.16.100.220
-Name:	dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com
-Address: 172.16.100.161
+Name:	exacs-iad01-3tjlf-scan.sub09231348061.exaiadvcn.oraclevcn.com
+Address: 172.16.100.157
+Name:	exacs-iad01-3tjlf-scan.sub09231348061.exaiadvcn.oraclevcn.com
+Address: 172.16.100.160
+Name:	exacs-iad01-3tjlf-scan.sub09231348061.exaiadvcn.oraclevcn.com
+Address: 172.16.100.181
 ```
 NC output
 ```bash
-[opc@engineer-vm ~]$ nc -vz dbnode-giusq-scan.sub09231348061.exaiadvcn.oraclevcn.com 1521
+[opc@engineer-vm ~]$ nc -vz exacs-iad01-3tjlf-scan.sub09231348061.exaiadvcn.oraclevcn.com 1521
 Ncat: Version 7.70 ( https://nmap.org/ncat )
-Ncat: Connected to 172.16.100.220:1521.
+Ncat: Connected to 172.16.100.160:1521.
 Ncat: 0 bytes sent, 0 bytes received in 0.01 seconds.
 ```
-#### ExaCS IAD ADB VM Cluster
+#### ExaCS IAD ADB VM Cluster (example)
 
 ```bash
 [opc@engineer-vm ~]$ nslookup host-knpvi-scan.sub09231348061.exaiadvcn.oraclevcn.com
