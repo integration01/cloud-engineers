@@ -46,7 +46,10 @@ Per the [announcement](https://blogs.oracle.com/database/post/introducing-autono
 ![ADB-Free](images/ADB-Free-Developers.png)
 
 ## ADB Network Access (ACL)
-By default an ADB instance will be open to conenctions that are allowed into the Client Security List for the Autonomous VM Cluster.  If you want to restrict this, you can add an ACL, limiting connections to your ADB-D instance to IP addresses coming from your subnet.  To do this, find your subnet and add
+By default an ADB instance will be open to conenctions that are allowed into the Client Security List for the Autonomous VM Cluster.  If you want to restrict this, you can add an ACL, limiting connections to your ADB-D instance to IP addresses coming from your subnet.  To do this, find your private subnet (where an application or workload requiring DB access might live) and add it to the ACL.  If there is a Data Guard Instance, add that as well.
+
+![ADB-ACL-Primary](images/ADB-Primary-ACL.png)
+![ADB-ACL-Standby](images/ADB-Standby-ACL.png)
 
 # VCN Connection Details
 In order to access a database in the ExaCS VCN, you need to attach your VCN to the same DRG.  See the architecture diagram above for a visual.  This requires that your VCN be in a compatible CIDR range, have a subnet with a route rule to the DRG, and allow egress to the ExaCS VCN.  Screen shots are below for these configurations.  Additionally, it is convenient to use a VCN DNS Resolver with a private view, which allows VMs, applications, etc in your VCN to look up the SCAN Name of the database and get the IP addresses for the listener.
