@@ -28,13 +28,25 @@ The Data Guard association can be edited or terminated after creation.
 ## Using Database Management
 Enablement of DB Management and Operations Insights has already been done for the tenancy.  You need to enable the database for DB Management by following the instructions [here](./DB-TOOLS-README.md)
 
-# Creation of ADB Database with or without Data Guard
+# Creation of ADB Database
+When creating an ADB-D instance, there are a couple of options to select from.
+
+## Data Guard Options
 Creation of an ADB-D instance is done from within an Autonomous Container Database.  Use of Data Guard should be decided up front, as there are 2 ADB Autonomous Container Databases (ACD) to choose from.  One is enabled for Autonomous Data Guard, the other is not.  Placement of an ADB instance within one of these ACDs will dictate whether Data Guard is enabled for that database.
 ![ADB](images/ADB-ACD.png)
 
 When choosing the Autonomous Container Databse, note the check box for Data Guard:
 ![ADB-DG](images/ADB-DataGuard.png)
 ![ADB-No-DG](images/ADB-No-DataGuard.png)
+
+## ADB Free Option
+
+Per the [announcement](https://blogs.oracle.com/database/post/introducing-autonomous-database-for-developers) of Free ADB-D instances, this can be set up as an option.  Simply select the ACD without Data Guard.
+
+![ADB-Free](images/ADB-Free-Developers.png)
+
+## ADB Network Access (ACL)
+By default an ADB instance will be open to conenctions that are allowed into the Client Security List for the Autonomous VM Cluster.  If you want to restrict this, you can add an ACL, limiting connections to your ADB-D instance to IP addresses coming from your subnet.  To do this, find your subnet and add
 
 # VCN Connection Details
 In order to access a database in the ExaCS VCN, you need to attach your VCN to the same DRG.  See the architecture diagram above for a visual.  This requires that your VCN be in a compatible CIDR range, have a subnet with a route rule to the DRG, and allow egress to the ExaCS VCN.  Screen shots are below for these configurations.  Additionally, it is convenient to use a VCN DNS Resolver with a private view, which allows VMs, applications, etc in your VCN to look up the SCAN Name of the database and get the IP addresses for the listener.
@@ -64,6 +76,9 @@ Attach your VCN to the DRG in the appropriate region:
 
 ## DNS Resolver
 Add the EXISTING DNS Resolver Private View to ExaCS VCN - you will need to use the compartment browser to find `cloud-engineering-shared/ExaCS`:
+![VCN-Subnet](images/VCN-DNS-Resolver-Comp.png)
+
+Choose `exa-iad-vcn` for Ashburn or `exa-phx-vcn` for Phoenix.  Do not create your own private view.
 
 ![VCN-Subnet](images/VCN-DNS-Resolver.png)
 
