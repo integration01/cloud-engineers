@@ -96,7 +96,7 @@ Add Egress TCP/1521 for the block above:
 ![VCN-Subnet](images/VCN-NSG-Egress.png)
 
 ### Client VM
-In your VCN, use the established security list or NSG to ensure connectivity.  In the exampel below, the NSG is added to the VM, ensuring egress to the ExaCS client range:
+In your VCN, use the established security list or NSG to ensure connectivity.  In the example below, the NSG is added to the VM, ensuring egress to the ExaCS client range:
 
 ![VCN-Subnet](images/ExaCS-Client-VM-NSG.png)
 
