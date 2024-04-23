@@ -1,9 +1,10 @@
-Report generated: 2024-04-22
+Report generated: 2024-04-23
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
 iad | DRG01_To_exa_ash | 10.5.3.0/24 | Arpit |
 iad | DRG01_To_exa | 11.0.0.0/16 | Arpit |
+iad | ExaCS_DRG | 10.31.0.0/16 | Cali_D |
 iad | ag-exa-vcn-attachment | 10.0.1.0/24 | CIS235-network-cmp |
 iad | cloud-engineering-shared-landing-zone-vcn-drg-attachment | 10.241.0.0/16 | CISLZ-network-cmp |
 iad | cis262exavcn-drg-attachment | 10.239.0.0/24 | CISLZ-network-cmp |
