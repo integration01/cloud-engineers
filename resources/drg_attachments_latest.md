@@ -1,4 +1,4 @@
-Report generated: 2024-07-13
+Report generated: 2024-07-14
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -35,4 +35,5 @@ phx | jodrgattchment | 10.27.93.0/24 | jrolsen |
 phx | DRG-TO-EXA-KK | 10.71.0.0/24 | KabirKazimi |
 phx | drg-to-exa-phx | 10.61.0.0/24 | rkab |
 phx | skotagiri_vcn_to_exacs_phx_drg | 10.33.33.0/24 | skotagiri_compartment |
+phx | simonp-drg | 11.48.7.0/24 | spearce |
 phx | sweiberle-phx-vnc-drg | 10.27.56.0/24 | sweiberle-comp |
