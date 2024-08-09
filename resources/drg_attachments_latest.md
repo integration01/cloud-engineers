@@ -1,4 +1,4 @@
-Report generated: 2024-08-08
+Report generated: 2024-08-09
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -19,7 +19,6 @@ iad | to-drg-exa-ash | 10.0.16.0/20 | markshar |
 iad | drg-to-exa-iad | 10.60.0.0/24 | rkab |
 iad | drg-exa-iad | 10.0.0.0/24 | rkab |
 iad | to-drg-exacs-ash | 10.0.0.0/16 | skotagiri_compartment |
-iad | dgr_demo | 10.10.0.0/24 | sprovost |
 iad | sweiberle-ash-vnc-drg | 10.27.57.0/24 | sweiberle-comp |
 iad | drg-attach1 | 172.16.200.0/26 | Vivek |
 phx | drgattachment20240312151937 | 11.250.0.0/24 | admin |
