@@ -1,4 +1,4 @@
-Report generated: 2024-09-10
+Report generated: 2024-09-11
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -26,6 +26,7 @@ phx | DRG01_To_exa | 10.0.0.0/16 | Arpit |
 phx | agregory-CIS235-VCN-drg-attachment | 11.0.1.0/24 | CIS235-network-cmp |
 phx | drg-att-exa-phx | 11.1.1.0/24 | corozco |
 phx | dagarwal-phx-drg | 10.18.91.0/24 | dagarwal |
+phx | exacs-phx | 11.77.2.0/24 | ericchen |
 phx | exa-phx-vcn | 11.77.0.0/16 | ericchen |
 phx | exa-phx-vcn-attachment | 172.17.100.0/23 | ExaCS |
 phx | DRG-PHX-EXA | 10.3.0.0/16 | ExaDB-D-PHX |
