@@ -1,4 +1,4 @@
-Report generated: 2024-09-26
+Report generated: 2024-09-27
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -7,7 +7,6 @@ iad | DRG01_To_exa | 11.0.0.0/16 | Arpit |
 iad | ExaCS_DRG | 10.31.0.0/16 | Cali_D |
 iad | ag-exa-vcn-attachment | 10.0.1.0/24 | CIS235-network-cmp |
 iad | cloud-engineering-shared-landing-zone-vcn-iad-drg-attachment | 10.241.0.0/16 | CISLZ-network-cmp |
-iad | cis262exavcn-drg-attachment | 10.239.0.0/24 | CISLZ-network-cmp |
 iad | toExa | 72.16.0.0/16 | colrobin |
 iad | CMO-EXA-DRG-ATT | 10.0.0.0/16 | corozco |
 iad | to-drg-exa-ash | 10.13.13.0/24 | cveenstr |
@@ -25,7 +24,6 @@ phx | drgattachment20240312151937 | 11.250.0.0/24 | admin |
 phx | DRG01_To_exa | 10.0.0.0/16 | Arpit |
 phx | agregory-CIS235-VCN-drg-attachment | 11.0.1.0/24 | CIS235-network-cmp |
 phx | cloud-engineering-shared-landing-zone-vcn-phx-drg-attachment | 11.250.0.0/16 | CISLZ-network-cmp |
-phx | CISLZ-0-exa-vcn-drg-attachment | 11.251.0.0/24 | CISLZ-network-cmp |
 phx | drg-att-exa-phx | 11.1.1.0/24 | corozco |
 phx | dagarwal-phx-drg | 10.18.91.0/24 | dagarwal |
 phx | exacs-phx | 11.77.2.0/24 | ericchen |
