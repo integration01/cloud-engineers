@@ -1,4 +1,4 @@
-Report generated: 2024-11-12
+Report generated: 2024-11-13
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -12,6 +12,7 @@ iad | toExa | 72.16.0.0/16 | colrobin |
 iad | CMO-EXA-DRG-ATT | 10.0.0.0/16 | corozco |
 iad | to-drg-exa-ash | 10.13.13.0/24 | cveenstr |
 iad | drg-attachment-exa-iad-vcn | 172.16.100.0/23 | ExaCS |
+iad | exa-drg | 10.0.0.0/16 | jibin-ocilabs |
 iad | jo-exa-drg | 10.27.92.0/24 | jrolsen |
 iad | drgattachment20240327184915 | 10.0.0.0/16 | jrolsen |
 iad | to-drg-exa-ash-LD | 172.16.110.0/24 | Leona |
