@@ -1,4 +1,4 @@
-Report generated: 2024-12-09
+Report generated: 2024-12-10
 |Region|Attachment Name|CIDR Range|Compartment|
 |:---|:---|:---|:---:|
 iad | admin-to-exacs-attachment | 10.250.0.0/24 | admin |
@@ -17,8 +17,6 @@ iad | jo-exa-drg | 10.27.92.0/24 | jrolsen |
 iad | drgattachment20240327184915 | 10.0.0.0/16 | jrolsen |
 iad | to-drg-exa-ash-LD | 172.16.110.0/24 | Leona |
 iad | to-drg-exa-ash | 10.0.16.0/20 | markshar |
-iad | drg-to-exa-iad | 10.60.0.0/24 | rkab |
-iad | drg-exa-iad | 10.0.0.0/24 | rkab |
 iad | to-drg-exacs-ash | 10.0.0.0/16 | skotagiri_compartment |
 iad | drgattachment20241008235303 | 10.48.7.0/24 | spearce |
 iad | sweiberle-ash-vnc-drg | 10.27.57.0/24 | sweiberle-comp |
@@ -37,7 +35,6 @@ phx | toExaCSphx | 10.51.0.0/23 | gmccart |
 phx | exa-phx-vcn-jwatch | 10.1.0.0/16 | JesseWang |
 phx | jodrgattchment | 10.27.93.0/24 | jrolsen |
 phx | DRG-TO-EXA-KK | 10.71.0.0/24 | KabirKazimi |
-phx | drg-to-exa-phx | 10.61.0.0/24 | rkab |
 phx | skotagiri_vcn_to_exacs_phx_drg | 10.33.33.0/24 | skotagiri_compartment |
 phx | simonp-drg | 11.48.7.0/24 | spearce |
 phx | sweiberle-phx-vnc-drg | 10.27.56.0/24 | sweiberle-comp |
